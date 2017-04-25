@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', "BlogController@listPosts");
-Route::get('/page/{page}', "BlogController@listPosts");
-Route::get('/post/{slug}', "BlogController@showPost");
+Route::get('/', function() {
+  return Redirect::to("/blog", 301);
+});
+Route::get('/blog', "BlogController@listAllPosts");
+Route::get('/blog/p/{page}', "BlogController@listAllPosts");
+Route::get('/blog/{slug}', "BlogController@showPost");
+
+Route::get('/authors', "BlogController@listAllAuthors");
+Route::get('/author/{slug}', "BlogController@showAuthor");
+Route::get('/author/{slug}/p/{page}', "BlogController@showAuthor");
+
+Route::get('/categories', "BlogController@listAllCategories");
+Route::get('/category/{slug}', "BlogController@showCategory");
+Route::get('/category/{slug}/p/{page}', "BlogController@showCategory");
+
+Route::get('/tags', "BlogController@listAllTags");
+Route::get('/tag/{slug}', "BlogController@showTag");
+Route::get('/tag/{slug}/p/{page}', "BlogController@showTag");

@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "buttercms/buttercms-php",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/buttercms/buttercms-php.git",
-                "reference": "ba9e2b06ed74e91ed3d392b4e803d26e8bb32ca4"
+                "url": "https://github.com/ButterCMS/buttercms-php.git",
+                "reference": "269d237872c89b418d63c2e4179ae31db7d73984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/buttercms/buttercms-php/zipball/ba9e2b06ed74e91ed3d392b4e803d26e8bb32ca4",
-                "reference": "ba9e2b06ed74e91ed3d392b4e803d26e8bb32ca4",
+                "url": "https://api.github.com/repos/ButterCMS/buttercms-php/zipball/269d237872c89b418d63c2e4179ae31db7d73984",
+                "reference": "269d237872c89b418d63c2e4179ae31db7d73984",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +38,7 @@
                 }
             ],
             "description": "ButterCMS PHP API Wrapper",
-            "time": "2017-03-21T15:27:14+00:00"
+            "time": "2017-04-24T04:08:07+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
