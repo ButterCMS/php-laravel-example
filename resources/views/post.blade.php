@@ -1,35 +1,36 @@
 @extends('master')
 
-@section('pageTitle', $title)
+@section('pageTitle', $post->getSeoTitle())
+@section('metaDescription', $post->getMetaDescription())
 
 @section('content')
 
   <!-- Post title -->
-  <h2>{{$title}}</h2>
+  <h2>{{$post->getTitle()}}</h2>
 
 
   <!-- Publish date -->
   Published {{$published}} 
 
-  @if (count($categories) > 0)  
+  @if (count($post->getCategories()) > 0)  
     in
   @endif
 
   <!-- Post categories -->
-  @foreach ($categories as $category)
+  @foreach ($post->getCategories() as $category)
     <a href="/category/{{$category->getSlug()}}">{{$category->getName()}}</a>
   @endforeach
 
   <br />
 
   <!-- Post author -->
-  <a href="/author/{{$author->getSlug()}}">
-    {{$author->getFirstName()}} {{$author->getLastName()}}
+  <a href="/author/{{$post->getAuthor()->getSlug()}}">
+    {{$post->getAuthor()->getFirstName()}} {{$post->getAuthor()->getLastName()}}
   </a>
 
   <br />
 
   <div>
-    {!! $body !!}
+    {!! $post->getBody() !!}
   </div>
 @stop

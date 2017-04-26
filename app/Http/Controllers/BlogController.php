@@ -30,11 +30,8 @@ class BlogController extends BaseController {
     $response = $this->client->fetchPost($slug);
     $post = $response->getPost();
     return view('post', [
-      'title' => $post->getTitle(),
-      'body' => $post->getBody(),
+      'post' => $post,
       'published' => date('j/n/Y', strtotime($post->getPublished())),
-      'author' => $post->getAuthor(),
-      'categories' => $post->getCategories()
     ]);
   }
 

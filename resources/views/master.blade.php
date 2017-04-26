@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>@yield('pageTitle')</title>
+    <meta name="description" content="@yield('metaDescription')"/>
   </head>   
   <body>
   <a href="/blog">Home</a>
