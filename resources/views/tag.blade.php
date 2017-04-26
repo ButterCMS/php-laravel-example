@@ -7,9 +7,9 @@
 
   @if (is_array($posts))
     @foreach ($posts as $post)
-      <a href="/blog/{{$post->getSlug()}}">{{$post->getTitle()}}</a> 
+      <a href="/blog/{{urlencode($post->getSlug())}}">{{$post->getTitle()}}</a> 
       by
-      <a href="/author/{{$post->getAuthor()->getSlug()}}">
+      <a href="/author/{{urlencode($post->getAuthor()->getSlug())}}">
         {{$post->getAuthor()->getFirstName()}} {{$post->getAuthor()->getLastName()}}
       </a>
       <br>
@@ -17,9 +17,9 @@
   @endif
 
   @if (!is_null($previousPage))
-    <a href="/tag/{{$tag->getSlug()}}/p/{{$previousPage}}">Prev</a>
+    <a href="/tag/{{urlencode($tag->getSlug())}}/p/{{$previousPage}}">Prev</a>
   @endif
   @if (!is_null($nextPage))
-    <a href="/tag/{{$tag->getSlug()}}/p/{{$nextPage}}">Next</a>
+    <a href="/tag/{{urlencode($tag->getSlug())}}/p/{{$nextPage}}">Next</a>
   @endif
 @stop

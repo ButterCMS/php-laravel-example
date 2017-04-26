@@ -8,7 +8,6 @@
   <!-- Post title -->
   <h2>{{$post->getTitle()}}</h2>
 
-
   <!-- Publish date -->
   Published {{$published}} 
 
@@ -18,13 +17,13 @@
 
   <!-- Post categories -->
   @foreach ($post->getCategories() as $category)
-    <a href="/category/{{$category->getSlug()}}">{{$category->getName()}}</a>
+    <a href="/category/{{urlencode($category->getSlug())}}">{{$category->getName()}}</a>
   @endforeach
 
   <br />
 
   <!-- Post author -->
-  <a href="/author/{{$post->getAuthor()->getSlug()}}">
+  <a href="/author/{{urlencode($post->getAuthor()->getSlug())}}">
     {{$post->getAuthor()->getFirstName()}} {{$post->getAuthor()->getLastName()}}
   </a>
 

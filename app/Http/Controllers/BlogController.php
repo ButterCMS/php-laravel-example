@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Response as Response;
 use ButterCMS\ButterCMS;
 
 class BlogController extends BaseController {
@@ -99,6 +100,30 @@ class BlogController extends BaseController {
       'nextPage' => $postsResponse->getMeta()['next_page'],
       'previousPage' => $postsResponse->getMeta()['previous_page']
     ]);
+  }
+
+  public function showRSS() {
+    return Response::make(
+      $this->client->fetchFeed('rss')->asXML(),
+      200, 
+      ['Content-Type' => 'text/xml']
+    );
+  }
+
+  public function showAtom() {
+    return Response::make(
+      $this->client->fetchFeed('atom')->asXML(),
+      200, 
+      ['Content-Type' => 'text/xml']
+    );
+  }
+
+  public function showSitemap() {
+    return Response::make(
+      $this->client->fetchFeed('sitemap')->asXML(),
+      200, 
+      ['Content-Type' => 'text/xml']
+    );
   }
 
 }

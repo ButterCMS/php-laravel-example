@@ -13,7 +13,7 @@
   <h3>Articles</h3>
   @if (is_array($posts))
     @foreach ($posts as $post)
-      <a href="/blog/{{$post->getSlug()}}">{{$post->getTitle()}}</a> 
+      <a href="/blog/{{urlencode($post->getSlug())}}">{{$post->getTitle()}}</a> 
       <br>
     @endforeach
   @endif
@@ -22,6 +22,6 @@
     <a href="/author/{{urlencode($author->getSlug())}}/p/{{$previousPage}}">Prev</a>
   @endif
   @if (!is_null($nextPage))
-    <a href="/author/{{$author->getSlug()}}/p/{{$nextPage}}">Next</a>
+    <a href="/author/{{urlencode($author->getSlug())}}/p/{{$nextPage}}">Next</a>
   @endif
 @stop

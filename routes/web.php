@@ -12,20 +12,24 @@
 */
 
 Route::get('/', function() {
-  return Redirect::to("/blog", 301);
+  return Redirect::to('/blog', 301);
 });
-Route::get('/blog', "BlogController@listAllPosts");
-Route::get('/blog/p/{page}', "BlogController@listAllPosts");
-Route::get('/blog/{slug}', "BlogController@showPost");
+Route::get('/blog', 'BlogController@listAllPosts');
+Route::get('/blog/p/{page}', 'BlogController@listAllPosts');
+Route::get('/blog/{slug}', 'BlogController@showPost');
 
-Route::get('/authors', "BlogController@listAllAuthors");
-Route::get('/author/{slug}', "BlogController@showAuthor");
-Route::get('/author/{slug}/p/{page}', "BlogController@showAuthor");
+Route::get('/authors', 'BlogController@listAllAuthors');
+Route::get('/author/{slug}', 'BlogController@showAuthor');
+Route::get('/author/{slug}/p/{page}', 'BlogController@showAuthor');
 
-Route::get('/categories', "BlogController@listAllCategories");
-Route::get('/category/{slug}', "BlogController@showCategory");
-Route::get('/category/{slug}/p/{page}', "BlogController@showCategory");
+Route::get('/categories', 'BlogController@listAllCategories');
+Route::get('/category/{slug}', 'BlogController@showCategory');
+Route::get('/category/{slug}/p/{page}', 'BlogController@showCategory');
 
-Route::get('/tags', "BlogController@listAllTags");
-Route::get('/tag/{slug}', "BlogController@showTag");
-Route::get('/tag/{slug}/p/{page}', "BlogController@showTag");
+Route::get('/tags', 'BlogController@listAllTags');
+Route::get('/tag/{slug}', 'BlogController@showTag');
+Route::get('/tag/{slug}/p/{page}', 'BlogController@showTag');
+
+Route::get('/feeds/rss', 'BlogController@showRSS');
+Route::get('/feeds/atom', 'BlogController@showAtom');
+Route::get('/sitemap', 'BlogController@showSitemap');

@@ -6,9 +6,9 @@
   <h2>Blog</h2>
 
   @foreach ($posts as $post)
-    <a href="/blog/{{$post->getSlug()}}">{{$post->getTitle()}}</a> 
+    <a href="/blog/{{urlencode($post->getSlug())}}">{{$post->getTitle()}}</a> 
     by 
-    <a href="/author/{{$post->getAuthor()->getSlug()}}">
+    <a href="/author/{{urlencode($post->getAuthor()->getSlug())}}">
       {{$post->getAuthor()->getFirstName()}} {{$post->getAuthor()->getLastName()}}
     </a>
     <br>
