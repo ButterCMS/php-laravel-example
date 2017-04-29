@@ -33,3 +33,8 @@ Route::get('/tag/{slug}/p/{page}', 'BlogController@showTag');
 Route::get('/feeds/rss', 'BlogController@showRSS');
 Route::get('/feeds/atom', 'BlogController@showAtom');
 Route::get('/sitemap', 'BlogController@showSitemap');
+
+Route::get('/faq', 'BlogController@showFaq');
+
+Route::get('/locations', 'BlogController@listAllLocations');
+Route::get('/location/{slug}', 'BlogController@showLocation');

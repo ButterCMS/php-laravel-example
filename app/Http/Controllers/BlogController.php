@@ -8,7 +8,7 @@ use ButterCMS\ButterCMS;
 
 class BlogController extends BaseController {
 
-  private static $apiToken = 'b60a008584313ed21803780bc9208557b3b49fbb';
+  private static $apiToken = 'de55d3f93789d4c5c26fb07445b680e8bca843bd';
   private $client;
 
   public function __construct() {
@@ -99,6 +99,31 @@ class BlogController extends BaseController {
       'tag' => $tagResponse,
       'nextPage' => $postsResponse->getMeta()['next_page'],
       'previousPage' => $postsResponse->getMeta()['previous_page']
+    ]);
+  }
+
+  public function showFaq() {
+    $response = $this->client->fetchContentFields([
+      'faq_headline',
+      'faq_items'
+    ]);
+    return view('faq', [
+      'faqHeadline' => $response['faq_headline'],
+      'faqItems' => $response['faq_items']
+    ]);
+  }
+
+  public function listAllLocations() {
+    return view('locations');
+  }
+
+  public function showLocation(string $slug) {
+    $response = $this->client->fetchContentFields(["location_pages[slug=${slug}]"]);
+    $page = $response['location_pages'][0];
+    return view('location', [
+      'featureImage' => $page['feature_image'],
+      'name' => $page['name'],
+      'description' => $page['description'],
     ]);
   }
 
