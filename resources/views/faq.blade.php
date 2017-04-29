@@ -7,6 +7,6 @@
 
   @foreach ($faqItems as $item)
     <h4>{{$item['question']}}</h4>
-    {{$item['answer']}}
+    <p>{!! $item['answer'] !!}</p>
   @endforeach
 @stop
