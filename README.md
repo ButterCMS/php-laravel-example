@@ -48,3 +48,7 @@ Dynamic pages are demonstrated with mock store location pages. Location page dat
 ## Documentation
 
 For a comprehensive list of examples and API docs, check out our [documentation](https://buttercms.com/docs/).
+
+### Other
+
+View Laravel [Full CMS](https://buttercms.com/laravel-cms/) for other examples of using ButterCMS with Laravel.
